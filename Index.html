@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GST Calculator</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#2f3a24;
+    color:white;
+    min-height:100vh;
+    padding:40px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.card{
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#b5c7b4;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#cfcfcf;
+    margin-bottom:30px;
+}
+
+label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+input,select{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2c2c2c;
+    color:white;
+    font-size:16px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+button{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.calculate{
+    background:#b5c7b4;
+    color:black;
+}
+
+.reset{
+    background:#333;
+    color:white;
+}
+
+.result{
+    margin-top:30px;
+    background:#232323;
+    padding:20px;
+    border-radius:12px;
+}
+
+.result h2{
+    color:#b5c7b4;
+    margin-bottom:15px;
+}
+
+.result p{
+    margin:12px 0;
+    font-size:18px;
+}
+
+.info h2{
+    color:#b5c7b4;
+    margin-bottom:15px;
+}
+
+.info p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+.features{
+    margin-top:30px;
+}
+
+.features li{
+    margin:12px 0;
+    color:#ddd;
+}
+
+.contact{
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px solid #444;
+}
+
+.contact p{
+    margin:6px 0;
+}
+
+.digital-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#b5c7b4;
+    color:black;
+    text-decoration:none;
+    padding:14px 25px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    margin-top:40px;
+    color:#ccc;
+}
+
+@media(max-width:900px){
+
+.container{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="card">
+
+        <h1>GST Calculator</h1>
+        <p class="subtitle">Calculate GST easily and accurately</p>
+
+        <label>Enter Amount (₹)</label>
+
+        <input
+        type="number"
+        id="amount"
+        placeholder="Enter amount">
+
+        <label>Select GST Rate (%)</label>
+
+        <select id="gst">
+            <option value="5">5%</option>
+            <option value="12">12%</option>
+            <option value="18">18%</option>
+            <option value="28">28%</option>
+        </select>
+
+        <div class="buttons">
+
+            <button
+            class="calculate"
+            onclick="calculateGST()">
+            Calculate
+            </button>
+
+            <button
+            class="reset"
+            onclick="resetForm()">
+            Reset
+            </button>
+
+        </div>
+
+        <div class="result">
+
+            <h2>Result</h2>
+
+            <p>
+                GST Amount:
+                <span id="gstAmount">₹0.00</span>
+            </p>
+
+            <p>
+                Total Amount:
+                <span id="totalAmount">₹0.00</span>
+            </p>
+
+            <p>
+                Amount Before GST:
+                <span id="beforeGST">₹0.00</span>
+            </p>
+
+        </div>
+
+        <div class="contact">
+
+            <p><strong>Anitha Radhakrishnan Pillai</strong></p>
+
+            <p>anithapillai2005@gmail.com</p>
+
+            <a
+            href="https://digitalheroesco.com"
+            target="_blank"
+            class="digital-btn">
+            Built for Digital Heroes
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="card info">
+
+        <h2>About This GST Calculator</h2>
+
+        <p>
+        This GST Calculator helps users quickly
+        calculate Goods and Services Tax (GST)
+        on any amount.
+
+        Simply enter an amount, choose the GST
+        rate and instantly get the GST amount
+        and total amount including GST.
+        </p>
+
+        <div class="features">
+
+            <h2>Features</h2>
+
+            <ul>
+
+                <li>✓ Supports 5%, 12%, 18% and 28% GST rates</li>
+
+                <li>✓ Instant and accurate calculations</li>
+
+                <li>✓ Displays GST amount and total amount</li>
+
+                <li>✓ Mobile responsive design</li>
+
+                <li>✓ 100% Free to use</li>
+
+            </ul>
+
+        </div>
+
+        <div class="features">
+
+            <h2>How To Use</h2>
+
+            <ul>
+
+                <li>1. Enter the amount</li>
+
+                <li>2. Select GST rate</li>
+
+                <li>3. Click Calculate</li>
+
+                <li>4. View results instantly</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+© 2025 GST Calculator
+</footer>
+
+<script>
+
+function calculateGST(){
+
+    let amount =
+    parseFloat(
+    document.getElementById("amount").value
+    );
+
+    let gstRate =
+    parseFloat(
+    document.getElementById("gst").value
+    );
+
+    if(isNaN(amount) || amount <= 0){
+
+        alert("Please enter a valid amount");
+
+        return;
+    }
+
+    let gstAmount =
+    amount * gstRate / 100;
+
+    let totalAmount =
+    amount + gstAmount;
+
+    document.getElementById(
+    "gstAmount").innerText =
+    "₹" + gstAmount.toFixed(2);
+
+    document.getElementById(
+    "totalAmount").innerText =
+    "₹" + totalAmount.toFixed(2);
+
+    document.getElementById(
+    "beforeGST").innerText =
+    "₹" + amount.toFixed(2);
+
+}
+
+function resetForm(){
+
+    document.getElementById(
+    "amount").value = "";
+
+    document.getElementById(
+    "gstAmount").innerText = "₹0.00";
+
+    document.getElementById(
+    "totalAmount").innerText = "₹0.00";
+
+    document.getElementById(
+    "beforeGST").innerText = "₹0.00";
+
+}
+
+</script>
+
+</body>
+</html>
